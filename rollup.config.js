@@ -1,11 +1,11 @@
 import typescript from 'rollup-plugin-typescript2';
 import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
 import html from '@rollup/plugin-html';
 import serve from 'rollup-plugin-serve';
 import replace from '@rollup/plugin-replace';
 import external from 'rollup-plugin-peer-deps-external';
 import livereload from 'rollup-plugin-livereload';
+import commonjs from '@rollup/plugin-commonjs';
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 
@@ -29,7 +29,7 @@ export default {
     }),
     commonjs({
       include: ['node_modules/**'],
-      extensions: [...extensions, '.js'],
+      extensions: [...extensions],
     }),
     html(),
     process.env.NODE_ENV === 'development' && livereload(),
